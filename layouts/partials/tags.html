@@ -1,0 +1,2 @@
+{{- range .GetTerms "genres" }}<a class="tag" href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>{{ end }}
+{{- with .Params.language }}<span class="tag">{{ . }}</span>{{ end }}

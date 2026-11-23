@@ -1,0 +1,21 @@
+{{ define "main" }}
+<main class="page">
+  <div class="wrap">
+    <div class="crumbs"><a href="{{ "books/" | relURL }}">← Gallery</a></div>
+    <div class="book-detail">
+      <div>{{ partial "cover.html" . }}</div>
+      <div>
+        <h1>{{ .Title }}</h1>
+        <div class="by" style="font-size:18px;color:var(--muted);margin-bottom:12px">{{ .Params.author }}{{ with .Params.year }} · {{ . }}{{ end }}</div>
+        <div style="margin-bottom:24px">{{ partial "tags.html" . }}</div>
+        <div class="prose">{{ .Content }}</div>
+        {{- with .Params.links }}
+        <div class="actions" style="margin-top:24px">
+          {{- range $i, $l := . }}<a class="btn {{ if eq $i 0 }}primary{{ else }}ghost{{ end }}" href="{{ $l.url }}" rel="noopener">{{ $l.label }}</a>{{ end }}
+        </div>
+        {{- end }}
+      </div>
+    </div>
+  </div>
+</main>
+{{ end }}

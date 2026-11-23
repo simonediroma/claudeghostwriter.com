@@ -1,0 +1,6 @@
+- {name: essay, concept: Thesis, focus: "Falsifiability, circularity, scope"}
+- {name: fiction, concept: Dramatic question, focus: "Motivation, consequence, earned change"}
+- {name: manual, concept: Transformation, focus: "Evidence, context dependency, prerequisites"}
+- {name: biography, concept: Interpretation, focus: "Evidence, selection bias, alternative readings"}
+- {name: fable, concept: The moral, focus: "Earned ending, displacement, narrative necessity"}
+- {name: childrens-book, concept: The heart, focus: "Age appropriateness, child logic, read-aloud quality"}

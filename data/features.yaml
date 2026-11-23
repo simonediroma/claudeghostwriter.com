@@ -1,0 +1,36 @@
+- cmd: /ghost-writer:wizard
+  title: Guided onboarding
+  text: Author interview, book brainstorm and voice fingerprint from your writing samples. Start from nothing.
+- cmd: /ghost-writer:chapter
+  title: Full chapter cycle
+  text: Dialogue, draft, demolition and integration in one command. Or drive each step yourself.
+- cmd: /ghost-writer:demolish
+  title: Hostile critique
+  text: Finds circular arguments, unearned endings and unsupported claims. `--light` for the 3 most critical issues.
+- cmd: /ghost-writer:review
+  title: 5 reader personas
+  text: Target reader, hostile reader, domain expert, editor and out-of-target reader. Add your own.
+- cmd: /ghost-writer:graph
+  title: Book graph
+  text: A self-feeding map of characters, places, concepts and events — every fact cites a line and quotes it.
+- cmd: /ghost-writer:consistency-check
+  title: Continuity guard
+  text: Term drift, contradicted claims, broken promises, timeline and character details across chapters.
+- cmd: /ghost-writer:corrections
+  title: Re-read anywhere
+  text: Print a PDF with paragraph IDs, annotate on tablet, phone or paper, import the notes back.
+- cmd: /ghost-writer:session-start
+  title: Memory & resume
+  text: Terms, promises and demolition history are written down. Each session opens with a briefing in seconds.
+- cmd: /ghost-writer:export-epub
+  title: Manuscript & export
+  text: Arc audit and submission-ready manuscript. Export to PDF, EPUB and DOCX.
+- cmd: /ghost-writer:podcast
+  title: Book to podcast
+  text: Scripts adapted for the ear, offline TTS with Piper, original jingle, MP3 episodes and RSS feed.
+- cmd: /ghost-writer:site
+  title: Book website
+  text: A mobile-first page for GitHub Pages — cover, download, characters, podcast and the explorable graph.
+- cmd: /ghost-writer:freeflow
+  title: Writer's block mode
+  text: Dump everything you have in mind; the plugin organizes it into a chapter plan.

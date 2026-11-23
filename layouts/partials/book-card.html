@@ -1,0 +1,7 @@
+<article class="book" data-genres="{{ delimit (.Params.genres | default slice) " " }}">
+  <a href="{{ .RelPermalink }}" tabindex="-1" aria-hidden="true">{{ partial "cover.html" . }}</a>
+  <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+  <div class="by">{{ .Params.author }}{{ with .Params.year }} · {{ . }}{{ end }}</div>
+  <div>{{ partial "tags.html" . }}</div>
+  <p>{{ .Description }}</p>
+</article>

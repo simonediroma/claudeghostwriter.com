@@ -1,0 +1,30 @@
+{{ define "main" }}
+<main class="page">
+  <div class="wrap">
+    <div class="eyebrow">Gallery</div>
+    <h1 style="font-size:clamp(36px,6vw,56px)">Written with Ghost Writer.</h1>
+    <div class="muted prose">{{ .Content }}</div>
+    {{- $genres := site.Taxonomies.genres }}
+    {{- if gt (len $genres) 1 }}
+    <div class="filters" id="filters" role="group" aria-label="Filter by genre">
+      <button type="button" data-g="all" aria-pressed="true">all</button>
+      {{- range $genres.Alphabetical }}<button type="button" data-g="{{ .Page.Title | urlize }}" aria-pressed="false">{{ .Page.Title }}</button>{{ end }}
+    </div>
+    {{- end }}
+    <div class="books" id="books">
+      {{- range .Pages.ByDate.Reverse }}{{ partial "book-card.html" . }}{{ end }}
+      {{ partial "submit-card.html" . }}
+    </div>
+  </div>
+</main>
+{{ end }}
+{{ define "scripts" }}
+<script>
+const f = document.getElementById("filters");
+f && f.addEventListener("click", e => {
+  const g = e.target.dataset.g; if (!g) return;
+  f.querySelectorAll("button").forEach(x => x.setAttribute("aria-pressed", x.dataset.g === g));
+  document.querySelectorAll("#books .book").forEach(b => b.hidden = g !== "all" && !b.dataset.genres.split(" ").includes(g));
+});
+</script>
+{{ end }}

@@ -1,0 +1,8 @@
+{{- $palette := slice "#7a2e1d" "#1f3a5f" "#2f4f3a" "#5b3a6b" "#6b4a1f" "#28434a" }}
+{{- with .Resources.GetMatch "cover.*" }}
+  {{- $img := .Fill "480x720 webp" }}
+<div class="cover"><img src="{{ $img.RelPermalink }}" width="{{ $img.Width }}" height="{{ $img.Height }}" alt="Cover of {{ $.Title }}" loading="lazy"></div>
+{{- else }}
+  {{- $bg := index $palette (mod (hash.FNV32a .Title) (len $palette)) }}
+<div class="cover gen" style="background:linear-gradient(160deg,{{ $bg | safeCSS }},color-mix(in srgb,{{ $bg | safeCSS }} 60%,#000))"><b>{{ .Title }}</b><span>{{ .Params.author }}</span></div>
+{{- end }}

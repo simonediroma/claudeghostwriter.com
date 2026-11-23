@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="{{ site.LanguageCode }}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+{{- $title := cond .IsHome site.Title (printf "%s · %s" .Title site.Title) }}
+{{- $desc := .Description | default site.Params.description }}
+{{- $og := "images/icon.png" | absURL }}
+{{- with .Resources.GetMatch "cover.*" }}{{ $og = (.Fill "720x1080 webp").Permalink }}{{ end }}
+<title>{{ $title }}</title>
+<meta name="description" content="{{ $desc }}">
+<link rel="canonical" href="{{ .Permalink }}">
+<link rel="icon" type="image/png" href="{{ "images/icon.png" | relURL }}">
+<meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}">
+<meta property="og:title" content="{{ $title }}">
+<meta property="og:description" content="{{ $desc }}">
+<meta property="og:url" content="{{ .Permalink }}">
+<meta property="og:image" content="{{ $og }}">
+<meta name="twitter:card" content="summary">
+{{- $css := resources.Get "css/main.css" | minify | fingerprint }}
+<link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}">
+</head>
+<body>
+<nav>
+  <div class="wrap">
+    <a class="brand" href="{{ "/" | relURL }}"><img src="{{ "images/icon.png" | relURL }}" alt="">Ghost Writer</a>
+    <ul>
+      {{- range site.Menus.main }}
+      <li{{ if .Params.keep }} class="keep"{{ end }}><a href="{{ .URL }}">{{ .Name }}</a></li>
+      {{- end }}
+    </ul>
+  </div>
+</nav>
+{{ block "main" . }}{{ end }}
+<footer>
+  <div class="wrap">
+    <span>Ghost Writer · MIT License · by <a href="{{ site.Params.authorUrl }}">{{ site.Params.author }}</a></span>
+    <span>Not affiliated with Anthropic. Claude is a trademark of Anthropic.</span>
+  </div>
+</footer>
+{{ block "scripts" . }}{{ end }}
+</body>
+</html>

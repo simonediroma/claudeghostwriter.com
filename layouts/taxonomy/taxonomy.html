@@ -1,0 +1,12 @@
+{{ define "main" }}
+<main class="page">
+  <div class="wrap">
+    <div class="crumbs"><a href="{{ "books/" | relURL }}">← Gallery</a></div>
+    <div class="eyebrow">Genres</div>
+    <h1 style="font-size:clamp(36px,6vw,56px);text-transform:capitalize">{{ .Title }}</h1>
+    <div class="books" style="margin-top:28px">
+      {{- range .Pages }}<a class="btn ghost" style="margin:0 8px 8px 0" href="{{ .RelPermalink }}">{{ .Title }}</a>{{ end }}
+    </div>
+  </div>
+</main>
+{{ end }}

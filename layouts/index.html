@@ -1,0 +1,111 @@
+{{ define "main" }}
+<header class="hero" id="top">
+  <div class="wrap">
+    <div class="eyebrow">Claude Code plugin · free &amp; open source</div>
+    <h1>Write your book with Claude. <em>In your voice.</em></h1>
+    <p class="lead">Ghost Writer turns Claude into a demanding co-author: it asks before it writes, drafts in your voice, then tears the draft apart so your readers don't have to.</p>
+    <div class="actions">
+      <a class="btn primary" href="#install">Install the plugin</a>
+      <a class="btn ghost" href="{{ site.Params.repo }}">View on GitHub</a>
+    </div>
+  </div>
+</header>
+
+<section id="method">
+  <div class="wrap">
+    <div class="eyebrow">The method</div>
+    <h2>Claude formalizes. You invent.</h2>
+    <p class="muted" style="max-width:60ch">Born writing <a href="{{ "books/quantum-fatalism/" | relURL }}">Quantum Fatalism</a>, a philosophical essay written in explicit collaboration between a human author and Claude. Every chapter goes through the same four-step cycle.</p>
+    <div class="steps">
+      {{- range site.Data.method }}
+      <div class="step"><h3>{{ .title }}</h3><p>{{ .text }}</p></div>
+      {{- end }}
+    </div>
+  </div>
+</section>
+
+<section id="features">
+  <div class="wrap">
+    <div class="eyebrow">Features</div>
+    <h2>Everything a book needs, from first idea to podcast.</h2>
+    <div class="grid" style="margin-top:28px">
+      {{- range site.Data.features }}
+      <div class="card"><span class="cmd">{{ .cmd }}</span><h3>{{ .title }}</h3><p>{{ .text | markdownify }}</p></div>
+      {{- end }}
+    </div>
+
+    <h3 style="margin-top:56px">Six genre presets</h3>
+    <p class="muted">Vocabulary, questions and demolition logic adapt to what you're writing.</p>
+    <div class="tbl">
+      <table>
+        <thead><tr><th>Preset</th><th>Central concept</th><th>Demolition focus</th></tr></thead>
+        <tbody>
+          {{- range site.Data.presets }}
+          <tr><td><code>{{ .name }}</code></td><td>{{ .concept }}</td><td>{{ .focus }}</td></tr>
+          {{- end }}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">Principles</div>
+    <h2>The rules it never breaks.</h2>
+    <ul class="principles" style="margin-top:24px">
+      {{- range site.Data.principles }}<li>{{ . }}</li>{{ end }}
+    </ul>
+  </div>
+</section>
+
+<section id="gallery">
+  <div class="wrap">
+    <div class="eyebrow">Gallery</div>
+    <h2>Written with Ghost Writer.</h2>
+    <p class="muted" style="max-width:60ch">Books and long-form projects whose authors used the plugin.</p>
+    {{- $books := where site.RegularPages "Section" "books" }}
+    <div class="books">
+      {{- range first 7 $books.ByDate.Reverse }}{{ partial "book-card.html" . }}{{ end }}
+      {{ partial "submit-card.html" . }}
+    </div>
+    {{- if gt (len $books) 7 }}
+    <p class="more"><a class="btn ghost" href="{{ "books/" | relURL }}">See all {{ len $books }} books</a></p>
+    {{- end }}
+  </div>
+</section>
+
+<section id="install">
+  <div class="wrap">
+    <div class="eyebrow">Install</div>
+    <h2>Two commands in Claude Code.</h2>
+    <p class="muted">Add the repository as a marketplace, then install the plugin.</p>
+    {{- $c1 := printf "/plugin marketplace add %s" site.Params.marketplaceRepo }}
+    {{- $c2 := printf "/plugin install %s" site.Params.pluginId }}
+    <div class="codebox" style="margin:20px 0">
+<pre><span class="c"># 1 — add the repo as marketplace</span>
+{{ $c1 }}
+
+<span class="c"># 2 — install the plugin</span>
+{{ $c2 }}</pre>
+      <button class="copy" data-copy="{{ $c1 }}&#10;{{ $c2 }}">Copy</button>
+    </div>
+    <p>Then verify the setup and start:</p>
+    <div class="codebox" style="margin:20px 0">
+<pre>/ghost-writer:check   <span class="c"># verifies installation in 60 seconds</span>
+/ghost-writer:wizard  <span class="c"># conversational setup from scratch</span></pre>
+    </div>
+    <div class="actions">
+      <a class="btn primary" href="{{ site.Params.repo }}">Repository &amp; docs</a>
+      <a class="btn ghost" href="{{ site.Params.repo }}/blob/main/CHANGELOG.md">Changelog</a>
+    </div>
+  </div>
+</section>
+{{ end }}
+{{ define "scripts" }}
+<script>
+document.querySelectorAll(".copy").forEach(b => b.addEventListener("click", async () => {
+  try { await navigator.clipboard.writeText(b.dataset.copy); b.textContent = "Copied"; setTimeout(() => b.textContent = "Copy", 1500); } catch {}
+}));
+</script>
+{{ end }}

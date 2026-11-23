@@ -1,0 +1,41 @@
+baseURL = "https://claudeghostwriter.com/"
+languageCode = "en"
+title = "Claude Ghost Writer"
+enableRobotsTXT = true
+disableKinds = ["RSS"]
+
+[taxonomies]
+  genre = "genres"
+
+[params]
+  description = "A Claude Code plugin to write books with Claude — in your own voice. Dialogue, drafting, hostile critique, integration. Free and open source."
+  repo = "https://github.com/simonediroma/claude-ghost-writer"
+  marketplaceRepo = "simonediroma/claude-ghost-writer"
+  pluginId = "ghost-writer@simonediroma-ghost-writer"
+  author = "Simone Di Roma"
+  authorUrl = "https://github.com/simonediroma"
+
+[menus]
+  [[menus.main]]
+    name = "Method"
+    url = "/#method"
+    weight = 10
+  [[menus.main]]
+    name = "Features"
+    url = "/#features"
+    weight = 20
+  [[menus.main]]
+    name = "Gallery"
+    pageRef = "/books"
+    weight = 30
+    [menus.main.params]
+      keep = true
+  [[menus.main]]
+    name = "Install"
+    url = "/#install"
+    weight = 40
+    [menus.main.params]
+      keep = true
+
+[markup.goldmark.renderer]
+  unsafe = false
