@@ -8,7 +8,17 @@ content/books/my-book/
   cover.jpg     optional — 2:3 ratio, max 2 MB (.jpg, .png or .webp)
 ```
 
-## With the form (recommended)
+## From your book project (recommended)
+
+If you wrote the book with Ghost Writer 1.8.0 or later, open Claude Code in the book's folder and run:
+
+```
+/ghost-writer:gallery
+```
+
+It drafts the entry with you (title, genres, short description, links, cover), checks it against the rules below and, after your OK, opens the pull request with the GitHub CLI — or, without it, gives you a pre-filled link to the form.
+
+## With the form
 
 1. Click **Submit your project** on [claudeghostwriter.com/books](https://claudeghostwriter.com/books/), or open a new issue with the **Add my book to the gallery** template.
 2. Fill in the fields and drag the cover image into the *Cover image* field.

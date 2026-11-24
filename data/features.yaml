@@ -31,6 +31,9 @@
 - cmd: /ghost-writer:site
   title: Book website
   text: A mobile-first page for GitHub Pages — cover, download, characters, podcast and the explorable graph.
+- cmd: /ghost-writer:gallery
+  title: Share it in the gallery
+  text: Drafts your book's entry with you, checks it against the site's rules and submits it to the gallery on this site.
 - cmd: /ghost-writer:freeflow
   title: Writer's block mode
   text: Dump everything you have in mind; the plugin organizes it into a chapter plan.
