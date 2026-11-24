@@ -11,7 +11,9 @@ This guide takes you from installation to your first finished chapter.
 
 ## 1. Install the plugin
 
-In Claude Code, add the repository as a marketplace and install the plugin:
+The quickest way is the [Ghost Writer page in the Claude plugin directory](https://claude.ai/customize/plugins/id/4b831b3b-c718-4a20-b786-598ed6566696%40anthropic-plugin-directory): open it and install.
+
+Alternatively, in Claude Code, add the repository as a marketplace and install the plugin:
 
 ```
 /plugin marketplace add simonediroma/claude-ghost-writer
