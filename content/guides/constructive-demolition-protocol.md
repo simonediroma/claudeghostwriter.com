@@ -82,4 +82,4 @@ Every round, every objection and every decision stays in `demolition-history.md`
 
 ## Learn more
 
-The full protocol (procedure, personas, severity scale, exit criteria and the rules for running it on any LLM) is in the [Constructive Demolition Protocol repository](https://github.com/simonediroma/claude-cdp).
+The full protocol (procedure, personas, severity scale, exit criteria and the rules for running it on any LLM) is in the [Constructive Demolition Protocol documentation](https://simonediroma.github.io/cdp/).
