@@ -27,6 +27,8 @@ disableKinds = ["RSS"]
     name = "Guides"
     pageRef = "/guides"
     weight = 20
+    [menus.main.params]
+      keep = true
   [[menus.main]]
     name = "Gallery"
     pageRef = "/books"

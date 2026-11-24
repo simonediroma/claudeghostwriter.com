@@ -17,7 +17,7 @@
         <p class="muted">Ghost Writer is free and open source.</p>
         <a class="btn primary small" href="{{ with site.Params.installUrl }}{{ . }}{{ else }}{{ site.Home.RelPermalink }}#install{{ end }}">Install the plugin</a>
       </aside>
-      {{- with .NextInSection }}
+      {{- with .PrevInSection }}
       <p class="more"><a href="{{ .RelPermalink }}">Next: {{ .Title }} →</a></p>
       {{- end }}
     </article>

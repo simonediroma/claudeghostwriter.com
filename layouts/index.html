@@ -70,7 +70,7 @@
     <div class="eyebrow">Guides</div>
     <h2>Learn the method, one book at a time.</h2>
     <div class="grid guides" style="margin-top:28px">
-      {{- range first 3 $guides.ByDate.Reverse }}{{ partial "guide-card.html" . }}{{ end }}
+      {{- range first 3 $guides.ByWeight }}{{ partial "guide-card.html" . }}{{ end }}
     </div>
     <p class="more"><a class="btn ghost" href="{{ "guides/" | relURL }}">All guides</a></p>
   </div>
