@@ -48,6 +48,10 @@ Fill in `title`, `description`, `weight` (order) and an optional `level` label, 
 
 Set `installUrl` in `hugo.toml → [params]` to the plugin page on claude.ai: the main buttons point there. Empty = they point to the install section with the `/plugin` commands.
 
+## Analytics
+
+Cloudflare Web Analytics, cookieless (no consent banner). Set `cloudflareAnalyticsToken` in `hugo.toml → [params]`; the script is added only to production builds, never with `hugo server`.
+
 ## Edit the home page
 
 Texts that change often live in `data/`: `features.yaml`, `presets.yaml`, `method.yaml`, `principles.yaml`. Install commands and links are in `hugo.toml → [params]`. Layout: `layouts/index.html`; style: `assets/css/main.css`.

@@ -1,0 +1,4 @@
+{{- /* Cloudflare Web Analytics: cookieless. Only on production builds (GitHub Actions), never with `hugo server`. */ -}}
+{{- if and hugo.IsProduction site.Params.cloudflareAnalyticsToken }}
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "{{ site.Params.cloudflareAnalyticsToken }}"}'></script>
+{{- end }}

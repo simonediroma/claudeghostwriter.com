@@ -16,6 +16,8 @@ disableKinds = ["RSS"]
   author = "Simone Di Roma"
   authorUrl = "https://github.com/simonediroma"
   # Plugin page on claude.ai — main "Install" button. Leave empty to point to the install section.
+  # Cloudflare Web Analytics token (Web Analytics → site → JS snippet). Empty = no analytics.
+  cloudflareAnalyticsToken = ""
   installUrl = "https://claude.ai/customize/plugins/id/4b831b3b-c718-4a20-b786-598ed6566696%40anthropic-plugin-directory"
 
 [menus]
