@@ -4,7 +4,7 @@ Website of [Ghost Writer](https://github.com/simonediroma/claude-ghost-writer), 
 
 ## Add a book to the gallery
 
-Books are added by pull request — see [CONTRIBUTING.md](CONTRIBUTING.md). Every PR is checked by `.github/workflows/check-pr.yml` (`scripts/validate_books.py` + Hugo build); merging to `main` deploys.
+Books are added by pull request — see [CONTRIBUTING.md](CONTRIBUTING.md). Authors usually submit the **Add my book** issue form; adding the `approved` label runs `.github/workflows/book-from-issue.yml`, which creates the book folder (downloading the cover) and opens the pull request. Every PR is checked by `.github/workflows/check-pr.yml` (`scripts/validate_books.py` + Hugo build); merging to `main` deploys.
 
 ### Format
 
@@ -45,6 +45,11 @@ Texts that change often live in `data/`: `features.yaml`, `presets.yaml`, `metho
 ```bash
 hugo server
 ```
+
+## Repository setup (once)
+
+- **Settings → Actions → General → Workflow permissions**: enable *Allow GitHub Actions to create and approve pull requests*.
+- Labels `book-submission` and `approved` are created by `.github/workflows/labels.yml` on the first push (or run it manually).
 
 ## Domain setup (once)
 

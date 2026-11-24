@@ -1,0 +1,21 @@
+name: Labels
+
+on:
+  push:
+    branches: [main]
+    paths: [".github/workflows/labels.yml"]
+  workflow_dispatch:
+
+permissions:
+  issues: write
+
+jobs:
+  labels:
+    runs-on: ubuntu-latest
+    steps:
+      - env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          gh label create book-submission --color c2552d --description "Gallery submission from the form" --force
+          gh label create approved --color 2f7d4f --description "Approved: create the pull request" --force

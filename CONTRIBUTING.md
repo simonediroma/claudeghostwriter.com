@@ -8,12 +8,18 @@ content/books/my-book/
   cover.jpg     optional — 2:3 ratio, max 2 MB (.jpg, .png or .webp)
 ```
 
-## From the browser (no tools needed)
+## With the form (recommended)
 
-1. Click **Submit your project** on [claudeghostwriter.com/books](https://claudeghostwriter.com/books/) — GitHub opens a new `index.md` prefilled with the template, in your fork.
-2. Rename the path to `content/books/<your-book-slug>/index.md`, fill in the fields, then **Propose changes**.
-3. Optional cover: in your fork, open the same folder, **Add file → Upload files**, upload `cover.jpg` on the same branch.
-4. **Create pull request** and fill in the checklist.
+1. Click **Submit your project** on [claudeghostwriter.com/books](https://claudeghostwriter.com/books/), or open a new issue with the **Add my book to the gallery** template.
+2. Fill in the fields and drag the cover image into the *Cover image* field.
+3. The maintainer reviews the request and adds the `approved` label: a pull request with your book is created automatically (`.github/workflows/book-from-issue.yml`).
+4. When the pull request is merged, the site updates within a few minutes and the issue is closed.
+
+If something is wrong (missing field, invalid link, cover too large) the bot comments on the issue: edit it and it will be approved again.
+
+## With a pull request
+
+Fork the repository, add the folder `content/books/<your-book-slug>/` and open a pull request; fill in the checklist in the template.
 
 ## From the command line
 

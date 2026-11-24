@@ -1,0 +1,90 @@
+name: Book from issue
+
+# Runs when the maintainer adds the "approved" label to a book submission.
+# Only people with triage/write access can add labels.
+on:
+  issues:
+    types: [labeled]
+
+permissions:
+  contents: write
+  pull-requests: write
+  issues: write
+
+env:
+  HUGO_VERSION: 0.140.2
+
+jobs:
+  create-pr:
+    if: github.event.label.name == 'approved' && contains(github.event.issue.labels.*.name, 'book-submission')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install pyyaml
+
+      - name: Create book folder
+        id: book
+        env:
+          ISSUE_BODY: ${{ github.event.issue.body }}
+          ISSUE_DATE: ${{ github.event.issue.created_at }}
+          ISSUE_URL: ${{ github.event.issue.html_url }}
+        run: |
+          set -o pipefail
+          if ! python scripts/book_from_issue.py > out.txt 2>&1; then
+            { echo 'error<<EOF'; cat out.txt; echo 'EOF'; } >> "$GITHUB_OUTPUT"; exit 1
+          fi
+          echo "slug=$(tail -n1 out.txt)" >> "$GITHUB_OUTPUT"
+
+      - name: Validate
+        id: validate
+        run: |
+          if ! python scripts/validate_books.py > out.txt 2>&1; then
+            { echo 'error<<EOF'; cat out.txt; echo 'EOF'; } >> "$GITHUB_OUTPUT"; exit 1
+          fi
+
+      - name: Install Hugo
+        run: |
+          wget -qO hugo.deb https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_linux-amd64.deb
+          sudo dpkg -i hugo.deb
+
+      - name: Build
+        run: hugo --gc --minify && rm -rf public resources .hugo_build.lock
+
+      - name: Open pull request
+        env:
+          GH_TOKEN: ${{ github.token }}
+          SLUG: ${{ steps.book.outputs.slug }}
+          NUMBER: ${{ github.event.issue.number }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          branch="book/${NUMBER}-${SLUG}"
+          git checkout -b "$branch"
+          git add "content/books/${SLUG}"
+          git commit -m "Add book: ${SLUG} (#${NUMBER})"
+          git push -f origin "$branch"
+          url=$(gh pr create --base main --head "$branch" \
+            --title "Add book: ${SLUG}" \
+            --body "Created from #${NUMBER}. Preview the files, then merge to publish.
+
+          Closes #${NUMBER}")
+          gh issue comment "$NUMBER" --body "Thanks! Your book is in pull request ${url} and will be online a few minutes after it is merged."
+
+      - name: Report problem on the issue
+        if: failure()
+        env:
+          GH_TOKEN: ${{ github.token }}
+          NUMBER: ${{ github.event.issue.number }}
+          ERR: ${{ steps.book.outputs.error }}${{ steps.validate.outputs.error }}
+        run: |
+          gh issue edit "$NUMBER" --remove-label approved
+          gh issue comment "$NUMBER" --body "The submission could not be added automatically:
+
+          \`\`\`
+          ${ERR:-See the workflow log.}
+          \`\`\`
+
+          Please edit the issue to fix it; the maintainer will approve it again."

@@ -1,0 +1,84 @@
+name: Add my book to the gallery
+description: Submit a book or long-form project written with Ghost Writer.
+title: "Book: "
+labels: [book-submission]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for sharing your work! Fill in the form: once the maintainer approves it, a pull request with your book is created automatically and the site updates after the merge.
+  - type: input
+    id: title
+    attributes:
+      label: Title
+    validations:
+      required: true
+  - type: input
+    id: author
+    attributes:
+      label: Author
+    validations:
+      required: true
+  - type: dropdown
+    id: genres
+    attributes:
+      label: Genre
+      multiple: true
+      options:
+        - essay
+        - fiction
+        - manual
+        - biography
+        - fable
+        - childrens-book
+    validations:
+      required: true
+  - type: input
+    id: language
+    attributes:
+      label: Language
+      description: Two-letter code, e.g. en, it, es
+      placeholder: en
+  - type: input
+    id: year
+    attributes:
+      label: Year
+      placeholder: "2026"
+  - type: textarea
+    id: description
+    attributes:
+      label: Short description
+      description: Max 300 characters, shown on the gallery card.
+    validations:
+      required: true
+  - type: textarea
+    id: links
+    attributes:
+      label: Links
+      description: One per line, as `Label | https://...` (store page, website, repository). No affiliate or tracking links.
+      placeholder: |
+        Buy on Amazon | https://...
+        Read online | https://...
+    validations:
+      required: true
+  - type: textarea
+    id: cover
+    attributes:
+      label: Cover image
+      description: Optional. Drag and drop a JPG, PNG or WebP here (2:3 ratio, max 2 MB). Without it a typographic cover is generated.
+  - type: textarea
+    id: about
+    attributes:
+      label: About the book
+      description: Optional. A longer description for the book page, and how you used Ghost Writer (Markdown).
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Confirmations
+      options:
+        - label: The book was written (fully or in part) with the Ghost Writer plugin.
+          required: true
+        - label: I am the author, or I have the author's permission to list it.
+          required: true
+        - label: I have the rights to publish the cover image.
+          required: true

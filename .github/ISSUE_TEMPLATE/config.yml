@@ -1,0 +1,5 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Plugin issues and questions
+    url: https://github.com/simonediroma/claude-ghost-writer/issues
+    about: Bugs and questions about the Ghost Writer plugin itself go to the plugin repository.
