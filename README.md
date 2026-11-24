@@ -4,6 +4,10 @@ Website of [Ghost Writer](https://github.com/simonediroma/claude-ghost-writer), 
 
 ## Add a book to the gallery
 
+Books are added by pull request — see [CONTRIBUTING.md](CONTRIBUTING.md). Every PR is checked by `.github/workflows/check-pr.yml` (`scripts/validate_books.py` + Hugo build); merging to `main` deploys.
+
+### Format
+
 Create a folder in `content/books/` with an `index.md` and, optionally, a cover image named `cover.jpg` (or `.png`/`.webp`, ideally 2:3):
 
 ```

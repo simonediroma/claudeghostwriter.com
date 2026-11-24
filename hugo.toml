@@ -10,6 +10,7 @@ disableKinds = ["RSS"]
 [params]
   description = "A Claude Code plugin to write books with Claude — in your own voice. Dialogue, drafting, hostile critique, integration. Free and open source."
   repo = "https://github.com/simonediroma/claude-ghost-writer"
+  siteRepo = "https://github.com/simonediroma/claudeghostwriter.com"
   marketplaceRepo = "simonediroma/claude-ghost-writer"
   pluginId = "ghost-writer@simonediroma-ghost-writer"
   author = "Simone Di Roma"
