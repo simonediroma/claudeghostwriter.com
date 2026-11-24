@@ -10,7 +10,8 @@
 <title>{{ $title }}</title>
 <meta name="description" content="{{ $desc }}">
 <link rel="canonical" href="{{ .Permalink }}">
-<link rel="icon" type="image/png" href="{{ "images/icon.png" | relURL }}">
+<link rel="icon" type="image/png" sizes="32x32" href="{{ "images/favicon-32.png" | relURL }}">
+<link rel="apple-touch-icon" href="{{ "images/apple-touch-icon.png" | relURL }}">
 <meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}">
 <meta property="og:title" content="{{ $title }}">
 <meta property="og:description" content="{{ $desc }}">
@@ -23,7 +24,7 @@
 <body>
 <nav>
   <div class="wrap">
-    <a class="brand" href="{{ site.Home.RelPermalink }}"><img src="{{ "images/icon.png" | relURL }}" alt="">Ghost Writer</a>
+    <a class="brand" href="{{ site.Home.RelPermalink }}"><img src="{{ "images/logo-64.png" | relURL }}" width="32" height="32" alt="">Ghost Writer</a>
     <ul>
       {{- range site.Menus.main }}
       <li{{ if .Params.keep }} class="keep"{{ end }}><a href="{{ if .PageRef }}{{ .URL }}{{ else }}{{ site.Home.RelPermalink }}{{ .URL }}{{ end }}">{{ .Name }}</a></li>
