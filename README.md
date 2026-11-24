@@ -36,6 +36,18 @@ Longer description shown on the book page (Markdown).
 
 Without a cover, a typographic cover is generated from the title.
 
+## Write a guide
+
+```bash
+hugo new guides/my-guide.md
+```
+
+Fill in `title`, `description`, `weight` (order) and an optional `level` label, write the guide in Markdown and set `draft: false` (or remove it). The newest three guides appear on the home page; the section is hidden there until the first guide exists.
+
+## Install button
+
+Set `installUrl` in `hugo.toml → [params]` to the plugin page on claude.ai: the main buttons point there. Empty = they point to the install section with the `/plugin` commands.
+
 ## Edit the home page
 
 Texts that change often live in `data/`: `features.yaml`, `presets.yaml`, `method.yaml`, `principles.yaml`. Install commands and links are in `hugo.toml → [params]`. Layout: `layouts/index.html`; style: `assets/css/main.css`.

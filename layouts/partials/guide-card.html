@@ -1,0 +1,6 @@
+<a class="card guide-card" href="{{ .RelPermalink }}">
+  {{- with .Params.level }}<span class="cmd">{{ . }}</span>{{ end }}
+  <h3>{{ .Title }}</h3>
+  <p class="muted">{{ .Description | default .Summary | plainify | truncate 160 }}</p>
+  <span class="read">Read the guide →</span>
+</a>

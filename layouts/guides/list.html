@@ -1,0 +1,16 @@
+{{ define "main" }}
+<main class="page">
+  <div class="wrap">
+    <div class="eyebrow">Guides</div>
+    <h1 style="font-size:clamp(36px,6vw,56px)">{{ .Title }}</h1>
+    <div class="muted prose">{{ .Content }}</div>
+    {{- with .Pages }}
+    <div class="grid guides" style="margin-top:28px">
+      {{- range .ByWeight }}{{ partial "guide-card.html" . }}{{ end }}
+    </div>
+    {{- else }}
+    <p class="muted" style="margin-top:28px">The first guides are on their way.</p>
+    {{- end }}
+  </div>
+</main>
+{{ end }}

@@ -15,15 +15,17 @@ disableKinds = ["RSS"]
   pluginId = "ghost-writer@simonediroma-ghost-writer"
   author = "Simone Di Roma"
   authorUrl = "https://github.com/simonediroma"
+  # Plugin page on claude.ai — main "Install" button. Leave empty to point to the install section.
+  installUrl = ""
 
 [menus]
   [[menus.main]]
-    name = "Method"
-    url = "/#method"
+    name = "Features"
+    url = "#features"
     weight = 10
   [[menus.main]]
-    name = "Features"
-    url = "/#features"
+    name = "Guides"
+    pageRef = "/guides"
     weight = 20
   [[menus.main]]
     name = "Gallery"
@@ -33,10 +35,17 @@ disableKinds = ["RSS"]
       keep = true
   [[menus.main]]
     name = "Install"
-    url = "/#install"
+    url = "#install"
     weight = 40
     [menus.main.params]
       keep = true
 
 [markup.goldmark.renderer]
   unsafe = false
+
+[markup.highlight]
+  noClasses = false
+
+[markup.tableOfContents]
+  startLevel = 2
+  endLevel = 3

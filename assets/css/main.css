@@ -118,3 +118,22 @@ footer a{color:var(--muted)}
 .book h3 a:hover{color:var(--accent)}
 .book[hidden]{display:none}
 .book>a,a.tag{text-decoration:none}
+
+/* guides */
+a.guide-card{display:flex;flex-direction:column;text-decoration:none;color:var(--text);transition:border-color .15s}
+a.guide-card:hover{border-color:var(--accent)}
+.guide-card .read{margin-top:auto;color:var(--accent);font-weight:600;font-size:15px}
+.guide header{margin-bottom:32px}
+.toc{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:16px 20px;margin:0 0 32px;max-width:65ch;font-size:15px}
+.toc ul{margin:6px 0 0;padding-left:18px}
+.toc a{color:var(--text)}
+.prose{font-size:18px;line-height:1.7}
+.prose h2{font-size:28px;margin:1.8em 0 .5em}
+.prose h3{font-size:21px;margin:1.5em 0 .4em}
+.prose pre{margin:1.2em 0;font-size:14.5px}
+.prose ul,.prose ol{padding-left:1.3em;margin:0 0 1em}
+.prose li{margin:.3em 0}
+.prose blockquote{margin:1.2em 0;padding:4px 0 4px 18px;border-left:3px solid var(--accent);color:var(--muted)}
+.prose table{margin:1.2em 0;border:1px solid var(--line);border-radius:10px;display:block;overflow-x:auto}
+.prose img{max-width:100%;height:auto;border-radius:10px}
+.grid.guides{grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr))}

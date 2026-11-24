@@ -1,0 +1,26 @@
+{{ define "main" }}
+<main class="page">
+  <div class="wrap">
+    <div class="crumbs"><a href="{{ "guides/" | relURL }}">← Guides</a></div>
+    <article class="guide">
+      <header>
+        <h1 style="font-size:clamp(34px,6vw,52px)">{{ .Title }}</h1>
+        {{- with .Description }}<p class="lead muted" style="font-size:20px;max-width:60ch">{{ . }}</p>{{ end }}
+        <p class="meta muted" style="font-size:14px">{{ .ReadingTime }} min read{{ with .Lastmod }} · Updated {{ .Format "2 January 2006" }}{{ end }}</p>
+      </header>
+      {{- if and (ge (len .Fragments.Headings) 1) (gt .WordCount 600) }}
+      <nav class="toc" aria-label="Contents"><b>Contents</b>{{ .TableOfContents }}</nav>
+      {{- end }}
+      <div class="prose">{{ .Content }}</div>
+      <aside class="card" style="margin-top:48px;max-width:65ch">
+        <h3>Try it on your book</h3>
+        <p class="muted">Ghost Writer is free and open source.</p>
+        <a class="btn primary small" href="{{ with site.Params.installUrl }}{{ . }}{{ else }}{{ site.Home.RelPermalink }}#install{{ end }}">Install the plugin</a>
+      </aside>
+      {{- with .NextInSection }}
+      <p class="more"><a href="{{ .RelPermalink }}">Next: {{ .Title }} →</a></p>
+      {{- end }}
+    </article>
+  </div>
+</main>
+{{ end }}

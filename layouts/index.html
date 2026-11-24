@@ -5,7 +5,11 @@
     <h1>Write your book with Claude. <em>In your voice.</em></h1>
     <p class="lead">Ghost Writer turns Claude into a demanding co-author: it asks before it writes, drafts in your voice, then tears the draft apart so your readers don't have to.</p>
     <div class="actions">
+      {{- with site.Params.installUrl }}
+      <a class="btn primary" href="{{ . }}" rel="noopener">Install on Claude</a>
+      {{- else }}
       <a class="btn primary" href="#install">Install the plugin</a>
+      {{- end }}
       <a class="btn ghost" href="{{ site.Params.repo }}">View on GitHub</a>
     </div>
   </div>
@@ -59,6 +63,20 @@
   </div>
 </section>
 
+{{- $guides := where site.RegularPages "Section" "guides" }}
+{{- with $guides }}
+<section id="guides">
+  <div class="wrap">
+    <div class="eyebrow">Guides</div>
+    <h2>Learn the method, one book at a time.</h2>
+    <div class="grid guides" style="margin-top:28px">
+      {{- range first 3 $guides.ByDate.Reverse }}{{ partial "guide-card.html" . }}{{ end }}
+    </div>
+    <p class="more"><a class="btn ghost" href="{{ "guides/" | relURL }}">All guides</a></p>
+  </div>
+</section>
+{{- end }}
+
 <section id="gallery">
   <div class="wrap">
     <div class="eyebrow">Gallery</div>
@@ -78,8 +96,8 @@
 <section id="install">
   <div class="wrap">
     <div class="eyebrow">Install</div>
-    <h2>Two commands in Claude Code.</h2>
-    <p class="muted">Add the repository as a marketplace, then install the plugin.</p>
+    <h2>Ready in two commands.</h2>
+    <p class="muted">{{ with site.Params.installUrl }}Install it from <a href="{{ . }}" rel="noopener">its page on Claude</a>, or add{{ else }}Add{{ end }} the repository as a marketplace, then install the plugin.</p>
     {{- $c1 := printf "/plugin marketplace add %s" site.Params.marketplaceRepo }}
     {{- $c2 := printf "/plugin install %s" site.Params.pluginId }}
     <div class="codebox" style="margin:20px 0">
@@ -96,7 +114,8 @@
 /ghost-writer:wizard  <span class="c"># conversational setup from scratch</span></pre>
     </div>
     <div class="actions">
-      <a class="btn primary" href="{{ site.Params.repo }}">Repository &amp; docs</a>
+      {{- with site.Params.installUrl }}<a class="btn primary" href="{{ . }}" rel="noopener">Install on Claude</a>{{ end }}
+      <a class="btn {{ if site.Params.installUrl }}ghost{{ else }}primary{{ end }}" href="{{ site.Params.repo }}">Repository &amp; docs</a>
       <a class="btn ghost" href="{{ site.Params.repo }}/blob/main/CHANGELOG.md">Changelog</a>
     </div>
   </div>
