@@ -113,9 +113,15 @@
 <pre>/ghost-writer:check   <span class="c"># verifies installation in 60 seconds</span>
 /ghost-writer:wizard  <span class="c"># conversational setup from scratch</span></pre>
     </div>
+    {{- with site.Params.pluginVersion }}
+    <p class="muted">No marketplace? Download <a href="{{ printf "downloads/ghost-writer-%s.plugin" . | relURL }}" download>ghost-writer-{{ . }}.plugin</a> and drag it into the Claude app (or upload it from Settings → Plugins).</p>
+    {{- end }}
     <div class="actions">
       {{- with site.Params.installUrl }}<a class="btn primary" href="{{ . }}" rel="noopener">Install on Claude</a>{{ end }}
       <a class="btn {{ if site.Params.installUrl }}ghost{{ else }}primary{{ end }}" href="{{ site.Params.repo }}">Repository &amp; docs</a>
+      {{- with site.Params.pluginVersion }}
+      <a class="btn ghost" href="{{ printf "downloads/ghost-writer-%s.plugin" . | relURL }}" download>Download .plugin ({{ . }})</a>
+      {{- end }}
       <a class="btn ghost" href="{{ site.Params.repo }}/blob/main/CHANGELOG.md">Changelog</a>
     </div>
   </div>
