@@ -5,17 +5,17 @@ genres: [childrens-book]
 language: it
 year: 2026
 date: 2026-11-27
-description: "El Chucharon è un ciuccio messicano volante che ha perso la sua bambina, Elena. Di tappa in tappa aiuta altri bambini ad affrontare le sfide della crescita, cantando sulle note de La Cucaracha. Un libro illustrato da leggere insieme, per bambini da 0 a 3 anni."
+description: "El Chucharon is a flying Mexican pacifier who has lost his little girl, Elena. Stop after stop, he helps other children face the challenges of growing up, singing to the tune of La Cucaracha. An illustrated book to read together, for children aged 0 to 3."
 links:
-  - label: "Leggi online"
+  - label: "Read online"
     url: "https://elchucharon.com"
-  - label: "Copia cartacea su Amazon"
+  - label: "Paperback on Amazon"
     url: "https://www.amazon.it/dp/B0H63PYG5S"
-  - label: "Sorgenti su GitHub"
+  - label: "Source on GitHub"
     url: "https://github.com/simonediroma/le-avventure-de-el-chucharon"
 ---
-Libro illustrato **collaborativo** per bambini piccoli, da leggere insieme a mamma e papà.
+A **collaborative** illustrated book for little children, to read together with mum and dad. The book is in Italian.
 
-El Chucharon è un ciuccio messicano volante che ha perso la sua bambina, Elena. Di tappa in tappa aiuta altri bambini ad affrontare le sfide della crescita: si toglie il sombrero, diventa **El Chucharito** e canta sulle note de *La Cucaracha*. Ogni storia lascia il bambino con un sorriso e il genitore con un respiro di sollievo.
+El Chucharon is a flying Mexican pacifier who has lost his little girl, Elena. Stop after stop, he helps other children face the challenges of growing up: he takes off his sombrero, becomes **El Chucharito** and sings to the tune of *La Cucaracha*. Every story leaves the child with a smile and the parent with a sigh of relief.
 
-Il libro è scritto con Ghost Writer (preset *childrens-book*) ed è aperto: chiunque può proporre una nuova avventura dal sito, senza account. Le proposte approvate vengono scritte e illustrate nello stesso stile del libro, riviste a mano e pubblicate.
+The book was written with Ghost Writer (*childrens-book* preset) and is open: anyone can propose a new adventure from the website, no account needed. Approved proposals are written and illustrated in the same style as the book, reviewed by hand and published.
