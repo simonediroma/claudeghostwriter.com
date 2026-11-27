@@ -65,7 +65,7 @@ body:
     id: cover
     attributes:
       label: Cover image
-      description: Optional. Drag and drop a JPG, PNG or WebP here (2:3 ratio, max 2 MB). Without it a typographic cover is generated.
+      description: Optional. Drag and drop a JPG, PNG or WebP here (max 2 MB; 2:3 is ideal, square covers are shown whole). Without it a typographic cover is generated.
   - type: textarea
     id: about
     attributes:
