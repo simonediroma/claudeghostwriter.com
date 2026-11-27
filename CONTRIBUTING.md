@@ -5,7 +5,7 @@ Books are added with a pull request. Each book is one folder:
 ```
 content/books/my-book/
   index.md      required
-  cover.jpg     optional — 2:3 ratio, max 2 MB (.jpg, .png or .webp)
+  cover.jpg     optional — max 2 MB (.jpg, .png or .webp); 2:3 ideal, square OK
 ```
 
 ## From your book project (recommended)

@@ -8,7 +8,7 @@ Books are added by pull request — see [CONTRIBUTING.md](CONTRIBUTING.md). Auth
 
 ### Format
 
-Create a folder in `content/books/` with an `index.md` and, optionally, a cover image named `cover.jpg` (or `.png`/`.webp`, ideally 2:3):
+Create a folder in `content/books/` with an `index.md` and, optionally, a cover image named `cover.jpg` (or `.png`/`.webp`, ideally 2:3; square or other ratios are shown whole, never cropped):
 
 ```
 content/books/my-book/
