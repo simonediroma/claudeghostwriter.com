@@ -18,6 +18,8 @@ disableKinds = ["RSS"]
   # Plugin page on claude.ai — main "Install" button. Leave empty to point to the install section.
   # Cloudflare Web Analytics token (Web Analytics → site → JS snippet). Empty = no analytics.
   cloudflareAnalyticsToken = "b5e121389bbd4dae9abb0637cb2e92bd"
+  # Manual-install package served from static/downloads/ghost-writer-<version>.plugin. Empty = no download button.
+  pluginVersion = "1.8.1"
   installUrl = "https://claude.ai/customize/plugins/id/4b831b3b-c718-4a20-b786-598ed6566696%40anthropic-plugin-directory"
 
 [menus]
