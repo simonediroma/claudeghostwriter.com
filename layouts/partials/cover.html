@@ -1,7 +1,16 @@
 {{- $palette := slice "#7a2e1d" "#1f3a5f" "#2f4f3a" "#5b3a6b" "#6b4a1f" "#28434a" }}
 {{- with .Resources.GetMatch "cover.*" }}
+  {{- $ratio := div (float .Height) .Width }}
+  {{- if and (ge $ratio 1.4) (le $ratio 1.6) }}
+  {{- /* already ~2:3: fill the frame */}}
   {{- $img := .Fill "480x720 webp" }}
 <div class="cover"><img src="{{ $img.RelPermalink }}" width="{{ $img.Width }}" height="{{ $img.Height }}" alt="Cover of {{ $.Title }}" loading="lazy"></div>
+  {{- else }}
+  {{- /* other ratios (square, landscape): show the whole cover, blurred copy behind */}}
+  {{- $img := .Fit "480x720 webp" }}
+  {{- $bg := .Fill "48x72 webp" }}
+<div class="cover fit"><span class="bg" style="background-image:url({{ $bg.RelPermalink }})"></span><img src="{{ $img.RelPermalink }}" width="{{ $img.Width }}" height="{{ $img.Height }}" alt="Cover of {{ $.Title }}" loading="lazy"></div>
+  {{- end }}
 {{- else }}
   {{- $bg := index $palette (mod (hash.FNV32a .Title) (len $palette)) }}
 <div class="cover gen" style="background:linear-gradient(160deg,{{ $bg | safeCSS }},color-mix(in srgb,{{ $bg | safeCSS }} 60%,#000))"><b>{{ .Title }}</b><span>{{ .Params.author }}</span></div>
