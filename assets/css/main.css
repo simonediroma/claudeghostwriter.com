@@ -138,6 +138,7 @@ a.guide-card:hover{border-color:var(--accent)}
 .prose li{margin:.3em 0}
 .prose blockquote{margin:1.2em 0;padding:4px 0 4px 18px;border-left:3px solid var(--accent);color:var(--muted)}
 .prose table{margin:1.2em 0;border:1px solid var(--line);border-radius:10px;display:block;overflow-x:auto}
+.prose p code,.prose li code{white-space:normal;overflow-wrap:anywhere}
 .prose img{max-width:100%;height:auto;border-radius:10px}
 .grid.guides{grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr))}
 .toc li{margin:3px 0}
