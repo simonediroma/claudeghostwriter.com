@@ -36,7 +36,7 @@ To fill the optional sections, run these first:
 
 - **Download button**: `/ghost-writer:manuscript-final`, then `/ghost-writer:export-pdf` or `/ghost-writer:export-epub`.
 - **Graph**: `/ghost-writer:graph`. Complete chapters sync on their own.
-- **Podcast**: `/ghost-writer:podcast`. It needs `ffmpeg` and `pip install piper-tts numpy`.
+- **Podcast**: `/ghost-writer:podcast`. It needs `ffmpeg` and `pip install piper-tts numpy`. See [Build your podcast](/guides/build-your-podcast/).
 
 ## Run the command
 
