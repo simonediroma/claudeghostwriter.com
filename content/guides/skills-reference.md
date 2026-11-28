@@ -2,7 +2,7 @@
 title: "Skills reference: every Ghost Writer command explained"
 description: One entry per skill — what it does, which project files it reads and writes, when to use it, and practical examples.
 date: 2026-11-28
-weight: 6
+weight: 7
 level: Reference
 ---
 Ghost Writer has 38 skills. This page lists every one of them with **what it does**, **which files it touches**, **when to use it** and a few **examples**.
