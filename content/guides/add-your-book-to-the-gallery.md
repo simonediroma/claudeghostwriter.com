@@ -10,7 +10,7 @@ The [gallery](/books/) collects books and long-form projects written with Ghost 
 ## Before you start
 
 - **Ghost Writer 1.8.0 or later.** The command is `/ghost-writer:gallery`.
-- **At least one public link to the book.** The gallery points readers somewhere: a store page, a website, a repository, a podcast. If the book isn't online yet, `/ghost-writer:site` builds a free website for it on GitHub Pages.
+- **At least one public link to the book.** The gallery points readers somewhere: a store page, a website, a repository, a podcast. If the book isn't online yet, `/ghost-writer:site` builds a free website for it on GitHub Pages: see [Build your book website](/guides/build-your-book-website/).
 - **A cover (optional).** JPG, PNG or WebP, up to 2 MB. 2:3 fills the card; a square cover (like a podcast cover) works too and is shown whole, never cropped. Without one, the site draws a typographic cover from the title.
 
 ## Run the command
