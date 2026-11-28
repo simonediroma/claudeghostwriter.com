@@ -291,7 +291,7 @@ The platforms re-read the feed on their own, usually within a few hours.
 | A word sounds wrong | Tell the plugin: it fixes the script and re-renders only that episode |
 | Spotify's code never arrives | Check the email is in the feed (`itunes:email`) and look in spam |
 | Apple rejects the feed | Almost always the cover: square, 1400–3000 px, RGB, JPG or PNG |
-| ElevenLabs returns 401 | The API key is missing or wrong: check `ELEVENLABS_API_KEY` |
-| ElevenLabs returns 402 or a quota error | You're out of characters for the month: upgrade the plan or wait for the reset |
+| ElevenLabs returns 401 `invalid_api_key` | The API key is missing or wrong: check `ELEVENLABS_API_KEY` |
+| ElevenLabs returns a `quota_exceeded` error | You're out of characters for the month: upgrade the plan or wait for the reset |
 | A new episode doesn't appear | Check the updated `feed.xml` is online, then wait a few hours |
 | An episode won't play | Open the MP3 link in a browser: it must play or download |
