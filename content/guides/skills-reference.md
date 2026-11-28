@@ -37,6 +37,8 @@ If you are just starting, read [How to install Claude Ghost Writer](../install-c
 | `graph/**` | graph (Sync) |
 | `site.yaml`, `docs/index.html` | site |
 
+To find out which file holds which information — and where to look when you need an answer about your book — see [Project files explained](../project-files-explained/).
+
 ## Setup
 
 ### check
